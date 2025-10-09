@@ -75,3 +75,90 @@ A lightweight **Spark cluster** running and ready for PySpark processing.
 ```python
 df = spark.read.csv("/FileStore/tables/Paris2024_Events.csv", header=True, inferSchema=True)
 df.show(5)
+```
+
+**Expected result:**  
+Your dataset is now uploaded and accessible within Databricks for Spark processing.
+
+---
+
+### **Step 4: Run a Spark Job in a Notebook**
+
+**Objective:** Process the Paris 2024 dataset using PySpark.
+
+#### Create a Notebook:
+1. In Databricks, go to **Workspace → Create → Notebook**  
+2. **Name:** `Paris2024_SparkJob`  
+3. **Language:** Python (PySpark)  
+4. **Cluster:** Attach your cluster (`spark-cluster-demo`)
+
+#### Example PySpark Job:
+```python
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+spark = SparkSession.builder.appName("Paris2024").getOrCreate()
+
+# Load data from DBFS
+df = spark.read.csv("/FileStore/tables/Paris2024_Events.csv", header=True, inferSchema=True)
+
+# Display dataset structure
+df.printSchema()
+
+# Filter events with more than 100 participants
+df_filtered = df.filter(col("participants") > 100)
+
+# Show results
+df_filtered.show(10)
+```
+
+#### Visualize Data:
+- In the output table view, click **+** → **Visualization**  
+- Create a **bar chart** or **pie chart** based on columns like *sport*, *venue*, or *participants*.
+
+**Expected result:**  
+The Spark job runs successfully and produces filtered, visualized data about Paris 2024 events.
+
+---
+
+### **Step 5: Manage and Monitor Your Cluster**
+
+**Objective:** Optimize resources and monitor performance.
+
+1. **Monitor Cluster Health:**  
+   - Go to **Compute → spark-cluster-demo → Metrics**  
+   - Observe CPU usage, memory, and active tasks.
+
+2. **Enable Auto Termination:**  
+   - Ensures the cluster stops automatically after inactivity.
+
+3. **Stop the Cluster Manually:**  
+   - Go to **Compute → Stop** to avoid using credits unnecessarily.
+
+4. **Security:**  
+   - Databricks uses Azure AD authentication.  
+   - For shared projects, assign roles or separate notebooks per user.
+
+**Expected result:**  
+You efficiently manage your cluster resources and maintain a secure environment.
+
+---
+
+### **Summary of the Activity**
+
+In this exercise, you have learned how to:
+1. Deploy an **Apache Spark environment** with **Azure Databricks**.  
+2. Upload and manage **Paris 2024 data** in **DBFS**.  
+3. Submit and run a **PySpark job** to process and analyze the dataset.  
+4. Visualize results and **monitor your cluster’s performance**.  
+5. Optimize resources through **auto-termination and proper management**.
+
+This hands-on lab demonstrates how to manage and process **Paris 2024 Olympic Games datasets** on a scalable, cloud-based platform using **Azure Databricks** — ideal for data analysis, transformation, and visualization.
+
+---
+
+✅ **Tip:**  
+If you finish early, try experimenting with:
+- Grouping events by sport (`df.groupBy("sport").count().show()`)
+- Plotting participation per country or venue  
+- Using Databricks SQL for interactive queries
