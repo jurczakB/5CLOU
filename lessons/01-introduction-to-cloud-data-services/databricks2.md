@@ -64,7 +64,7 @@ A lightweight **Spark cluster** running and ready for PySpark processing.
 
 **Objective:** Upload a CSV dataset to Databricks FileStore for analysis.
 
-- **Example Dataset:** [Paris 2024 Event Schedules](https://data.paris2024.org/explore/?sort=modified)
+- **Example Dataset:** [Paris 2024 Event Schedules]([https://data.paris2024.org/explore/?sort=modified](https://github.com/rythamsaini/Paris-Olympic-Games-2024))
 
 #### Upload Data:
 1. In Databricks, go to **Data → Add Data → Upload File**  
