@@ -109,7 +109,7 @@ df.printSchema()
 df_filtered = df.filter(col("participants") > 100)
 
 # Show results
-df_filtered.show(10)
+display(df_filtered)
 ```
 
 #### Visualize Data:
