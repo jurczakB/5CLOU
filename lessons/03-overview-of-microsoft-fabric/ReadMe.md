@@ -39,8 +39,8 @@ Set up a data pipeline using **Microsoft Fabric** to ingest Paris 2024 data, pro
   - **Destination**: Output the cleaned and transformed data to a new **OneLake** location for further analysis.
   - **Run the transformation**: Execute the pipeline and verify that the transformed data is correctly stored in OneLake.
 
-    ```python
-    # ============================================================================
+  ```python
+  # ============================================================================
   # PIPELINE MEDALLION - ATHLÈTES PARIS 2024
   # Architecture : Bronze → Silver → Gold
   # ============================================================================
@@ -269,7 +269,7 @@ Set up a data pipeline using **Microsoft Fabric** to ingest Paris 2024 data, pro
   print("  3. Créer des visualisations interactives")
   print("  4. Publier votre dashboard !")
   print("\n" + "="*80 + "\n")
-    ```
+  ```
 
 **Expected result**: The data should now be filtered and structured, allowing for further analysis (e.g., filtering by venue or event).
 
