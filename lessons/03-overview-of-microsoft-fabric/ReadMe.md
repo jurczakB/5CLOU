@@ -46,7 +46,8 @@ Set up a data pipeline using **Microsoft Fabric** to ingest Paris 2024 data, pro
   # ============================================================================
   
   # ===== CELLULE 1 : Vérification de l'environnement =====
-  
+  from notebookutils import mssparkutils
+  from pyspark.sql.functions import col, trim, upper, lower, count, when, isnan, regexp_replace
   
   # ===== CELLULE 2 : BRONZE LAYER - Ingestion des données brutes =====
   print("📥 BRONZE LAYER - Chargement des données brutes...\n")
